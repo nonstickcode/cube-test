@@ -1,7 +1,19 @@
+.cube-wrapper {
+  position: relative; /* Ensure this is relative to position buttons correctly if needed */
+  display: flex;
+  flex-direction: row; /* Adjust if your layout requires a different orientation */
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid black; */
+  width: 100vw;
+}
 .cube-container {
   perspective: 1000px;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cube {
@@ -16,14 +28,18 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(164, 164, 166, 0.57);
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.front  { transform: rotateY(  0deg) translateZ(100px); }
-.right  { transform: rotateY( 90deg) translateZ(100px); }
-.back   { transform: rotateY(180deg) translateZ(100px); }
-.left   { transform: rotateY(-90deg) translateZ(100px); }
+.front  { transform: rotateY(  0deg) translateZ(200px); }
+.right  { transform: rotateY( 90deg) translateZ(200px); }
+.back   { transform: rotateY(180deg) translateZ(200px); }
+.left   { transform: rotateY(-90deg) translateZ(200px); }
+
+.rotate-left, .rotate-right {
+  margin: 1rem;
+}

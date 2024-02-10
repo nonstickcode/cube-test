@@ -13,17 +13,20 @@ const Cube: React.FC = () => {
   };
 
   return (
-    <div className="cube-container">
-      <div className="cube" style={{ transform: `rotateY(${rotation}deg)` }}>
-        <div className="cube-face front">Front</div>
-        <div className="cube-face right">Right</div>
-        <div className="cube-face back">Back</div>
-        <div className="cube-face left">Left</div>
+    <div className="cube-wrapper">
+      <button className='rotate-left' onClick={rotateLeft}>Left</button>
+      <div className="cube-container">
+        <div className="cube" style={{ transform: `rotateY(${rotation}deg)` }}>
+          <div className="cube-face front">Front</div>
+          <div className="cube-face right">Right</div>
+          <div className="cube-face back">Back</div>
+          <div className="cube-face left">Left</div>
+        </div>
       </div>
-      <button onClick={rotateLeft}>Rotate Left</button>
-      <button onClick={rotateRight}>Rotate Right</button>
+      <button className='rotate-right' onClick={rotateRight}>Right</button>
     </div>
   );
 };
+
 
 export default Cube;
