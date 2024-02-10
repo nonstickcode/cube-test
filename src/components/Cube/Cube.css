@@ -8,9 +8,9 @@
   width: 100vw;
 }
 .cube-container {
-  perspective: 1000px;
-  width: 400px;
-  height: 400px;
+  perspective: 1500px;
+  width: 40vw;
+  height: 40vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,16 +37,16 @@
 }
 
 .front {
-  transform: rotateY(0deg) translateZ(200px);
+  transform: rotateY(0deg) translateZ(20vw);
 }
 .right {
-  transform: rotateY(90deg) translateZ(200px);
+  transform: rotateY(90deg) translateZ(20vw);
 }
 .back {
-  transform: rotateY(180deg) translateZ(200px);
+  transform: rotateY(180deg) translateZ(20vw);
 }
 .left {
-  transform: rotateY(-90deg) translateZ(200px);
+  transform: rotateY(-90deg) translateZ(20vw);
 }
 
 .rotate-left,
