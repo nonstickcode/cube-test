@@ -23,7 +23,6 @@
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
-  
 }
 
 .cube-face {
@@ -37,11 +36,20 @@
   justify-content: center;
 }
 
-.front  { transform: rotateY(  0deg) translateZ(200px); }
-.right  { transform: rotateY( 90deg) translateZ(200px); }
-.back   { transform: rotateY(180deg) translateZ(200px); }
-.left   { transform: rotateY(-90deg) translateZ(200px); }
+.front {
+  transform: rotateY(0deg) translateZ(200px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(200px);
+}
+.back {
+  transform: rotateY(180deg) translateZ(200px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(200px);
+}
 
-.rotate-left, .rotate-right {
+.rotate-left,
+.rotate-right {
   margin: auto;
 }
