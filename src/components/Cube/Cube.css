@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 50px;
 }
 
 .cube {
@@ -22,6 +23,7 @@
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
+  
 }
 
 .cube-face {
@@ -41,5 +43,5 @@
 .left   { transform: rotateY(-90deg) translateZ(200px); }
 
 .rotate-left, .rotate-right {
-  margin: 1rem;
+  margin: auto;
 }
