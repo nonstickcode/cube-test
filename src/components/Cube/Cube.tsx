@@ -3,6 +3,8 @@ import './Cube.css'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Generator from '../Generator/Generator'
+import PwnedChecker from '../PwnedChecker/PwnedChecker'
+import Tester from '../Tester/PasswordStrengthMeter'
 
 const Cube: React.FC = () => {
   const [rotation, setRotation] = useState<number>(0)
@@ -25,9 +27,13 @@ const Cube: React.FC = () => {
           <div className="cube-face front">
             <Generator />
           </div>
-          <div className="cube-face right">Right</div>
+          <div className="cube-face right">
+            <PwnedChecker />
+          </div>
           <div className="cube-face back">Back</div>
-          <div className="cube-face left">Left</div>
+          <div className="cube-face left">
+            <Tester />
+          </div>
         </div>
       </div>
       <button className="rotate-right" onClick={rotateRight}>

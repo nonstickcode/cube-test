@@ -6,7 +6,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #generator-container {
