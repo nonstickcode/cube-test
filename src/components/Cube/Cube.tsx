@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Cube.css'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Generator from '../Generator/Generator'
 
 const Cube: React.FC = () => {
   const [rotation, setRotation] = useState<number>(0)
@@ -21,7 +22,9 @@ const Cube: React.FC = () => {
       </button>
       <div className="cube-container">
         <div className="cube" style={{ transform: `rotateY(${rotation}deg)` }}>
-          <div className="cube-face front">Front</div>
+          <div className="cube-face front">
+            <Generator />
+          </div>
           <div className="cube-face right">Right</div>
           <div className="cube-face back">Back</div>
           <div className="cube-face left">Left</div>
