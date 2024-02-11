@@ -1,54 +1,61 @@
-// Generator.tsx
-import React, { useState, useEffect } from 'react'
-import './Generator.css'
+import React, { useState, useEffect } from 'react';
+import './Generator.css';
 
 const Generator: React.FC = () => {
-  const [characterAmount, setCharacterAmount] = useState<number>(10)
-  const [includeUppercase, setIncludeUppercase] = useState<boolean>(false)
-  const [includeNumbers, setIncludeNumbers] = useState<boolean>(false)
-  const [includeSymbols, setIncludeSymbols] = useState<boolean>(false)
-  const [password, setPassword] = useState<string>('password')
+  const [characterAmount, setCharacterAmount] = useState<number>(10);
+  const [includeUppercase, setIncludeUppercase] = useState<boolean>(false);
+  const [includeNumbers, setIncludeNumbers] = useState<boolean>(false);
+  const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('password');
 
   useEffect(() => {
-    generatePassword()
-  }, [])
+    generatePassword();
+  }, []);
 
-  const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
-  const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
-  const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
-  const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47)
-    .concat(arrayFromLowToHigh(58, 64))
-    .concat(arrayFromLowToHigh(91, 96))
-    .concat(arrayFromLowToHigh(123, 126))
+  const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122);
+  const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90);
+  const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57);
+  const SYMBOL_CHAR_CODES = [33, 64, 35, 36, 37, 94, 38, 42]; // Symbols: !@#$%^&*
 
   const generatePassword = (event?: React.FormEvent<HTMLFormElement>) => {
-    event?.preventDefault()
-    let charCodes = LOWERCASE_CHAR_CODES
-    if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
-    if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
-    if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
+    event?.preventDefault();
+    let charCodes = LOWERCASE_CHAR_CODES;
+    if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
+    if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES);
+    if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES);
 
-    const passwordCharacters = []
-    for (let i = 0; i < characterAmount; i++) {
-      const characterCode =
-        charCodes[Math.floor(Math.random() * charCodes.length)]
-      passwordCharacters.push(String.fromCharCode(characterCode))
+    let passwordLength = Math.max(10, Math.min(characterAmount, 50)); // Ensure password length is between 10 and 50 characters
+
+    const passwordCharacters = [];
+    const usedCharacters = new Set(); // Set to track used characters
+    for (let i = 0; i < passwordLength; i++) {
+      let characterCode;
+      do {
+        characterCode = charCodes[Math.floor(Math.random() * charCodes.length)];
+      } while (usedCharacters.has(characterCode)); // Keep generating character until it's not a repeat
+      usedCharacters.add(characterCode); // Add character to used set
+      passwordCharacters.push(String.fromCharCode(characterCode));
+      if ((i + 1) % 5 === 0 && i !== passwordLength - 1) {
+        passwordCharacters.push('_'); // Add underscore between groups of 5 characters
+      }
     }
-    setPassword(passwordCharacters.join(''))
-  }
+    setPassword(passwordCharacters.join(''));
+  };
 
   function arrayFromLowToHigh(low: number, high: number): number[] {
-    const array = []
+    const array = [];
     for (let i = low; i <= high; i++) {
-      array.push(i)
+      array.push(i);
     }
-    return array
+    return array;
   }
 
-  const syncCharacterAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value, 10)
-    setCharacterAmount(value)
-  }
+  const syncCharacterAmount = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const value = parseInt(e.target.value, 10);
+    setCharacterAmount(value);
+  };
 
   return (
     <div id="generator-container" className="container">
@@ -61,26 +68,18 @@ const Generator: React.FC = () => {
         className="form"
         onSubmit={generatePassword}
       >
-        <label htmlFor="characterAmountNumber">Number of Characters</label>
-        <div className="character-amount-container">
-          <input
-            type="range"
-            min="1"
-            max="50"
-            value={characterAmount}
-            onChange={syncCharacterAmount}
-            id="characterAmountRange"
-          />
-          <input
-            type="number"
-            className="number-input"
-            min="1"
-            max="50"
-            value={characterAmount}
-            onChange={syncCharacterAmount}
-            id="characterAmountNumber"
-          />
-        </div>
+        <label htmlFor="characterAmountSelector">Number of Characters</label>
+        <select
+          id="characterAmountSelector"
+          value={characterAmount}
+          onChange={syncCharacterAmount}
+        >
+          {[...Array(9)].map((_, i) => (
+            <option key={i} value={(i + 1) * 5 + 5}>
+              {(i + 1) * 5 + 5}
+            </option>
+          ))}
+        </select>
 
         <label htmlFor="includeUppercase">Include Uppercase</label>
         <input
@@ -111,7 +110,7 @@ const Generator: React.FC = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Generator
+export default Generator;
