@@ -79,7 +79,7 @@ const PasswordStrengthMeter: React.FC = () => {
 
   return (
     <div id="password-strength-meter-container" className="container">
-      <h1>Password Strength Meter</h1>
+      <h1>Strength Meter</h1>
       <div
         className="strength-meter"
         style={{ '--strength': `${strength}%` } as React.CSSProperties}

@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import SHA1 from 'crypto-js/sha1'
 import './PwnedChecker.css' // Make sure this CSS is properly linked and loaded
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Correct import for FontAwesomeIcon
+
 
 const PwnedChecker: React.FC = () => {
   const [password, setPassword] = useState('')
@@ -47,7 +50,7 @@ const PwnedChecker: React.FC = () => {
       <h2>Check here</h2>
 
       <button className="info-button" onClick={() => setModalOpen(true)}>
-        <i className="fas fa-info-circle"></i>
+        <FontAwesomeIcon icon={faInfoCircle} /> {/* Correct usage */}
       </button>
 
       <div className="form-container">
