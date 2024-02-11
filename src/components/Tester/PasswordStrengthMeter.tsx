@@ -79,7 +79,7 @@ const PasswordStrengthMeter: React.FC = () => {
 
   return (
     <div className="component-container">
-      <h1 className="component-title">Strength Meter</h1>
+      <h1 className="component-title">Test your strength</h1>
       <div
         className="strength-meter"
         style={{ '--strength': `${strength}%` } as React.CSSProperties}
@@ -87,7 +87,7 @@ const PasswordStrengthMeter: React.FC = () => {
       <input
         className="user-text-input"
         id="password-input"
-        placeholder="Enter your password here"
+        placeholder="Enter password here"
         type="text"
         autoFocus
         aria-labelledby="password entry field"

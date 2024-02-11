@@ -57,7 +57,7 @@ const PwnedChecker: React.FC = () => {
           className="user-text-input"
           type="password"
           ref={passwordInputRef}
-          placeholder="Enter your password here"
+          placeholder="Enter password here"
           onKeyPress={handleKeyPress}
           onChange={(e) => setPassword(e.target.value)}
         />
