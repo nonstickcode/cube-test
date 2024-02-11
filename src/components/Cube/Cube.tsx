@@ -19,7 +19,7 @@ const Cube: React.FC = () => {
 
   return (
     <div className="cube-wrapper">
-      <button className="rotate" onClick={rotateRight}>
+      <button className="rotate-btn" onClick={rotateRight}>
         <FontAwesomeIcon icon={faArrowLeft} />
       </button>
       <div className="cube-container">
@@ -36,7 +36,7 @@ const Cube: React.FC = () => {
           </div>
         </div>
       </div>
-      <button className="rotate" onClick={rotateLeft}>
+      <button className="rotate-btn" onClick={rotateLeft}>
         <FontAwesomeIcon icon={faArrowRight} />
       </button>
     </div>

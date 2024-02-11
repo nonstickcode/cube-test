@@ -44,9 +44,9 @@ const PwnedChecker: React.FC = () => {
   }
 
   return (
-    <div id="pwned-checker-container" className="container">
-      <h1>Password Pwned?</h1>
-      <h2>Check here</h2>
+    <div className="component-container">
+      <h1 className="component-title">Password Pwned?</h1>
+      <h2 className="component-sub-title" >Check here</h2>
 
       <button className="info-button" onClick={() => setModalOpen(true)}>
         <FontAwesomeIcon icon={faInfoCircle} /> {/* Correct usage */}
@@ -54,9 +54,10 @@ const PwnedChecker: React.FC = () => {
 
       <div className="form-container">
         <input
+          className="user-text-input"
           type="password"
           ref={passwordInputRef}
-          placeholder="Your Password"
+          placeholder="Enter your password here"
           onKeyPress={handleKeyPress}
           onChange={(e) => setPassword(e.target.value)}
         />

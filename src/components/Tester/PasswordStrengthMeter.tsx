@@ -78,19 +78,19 @@ const PasswordStrengthMeter: React.FC = () => {
   }
 
   return (
-    <div id="password-strength-meter-container" className="container">
-      <h1>Strength Meter</h1>
+    <div className="component-container">
+      <h1 className="component-title" >Strength Meter</h1>
       <div
         className="strength-meter"
         style={{ '--strength': `${strength}%` } as React.CSSProperties}
       ></div>
       <input
-        className="password-input"
+        className="user-text-input"
         id="password-input"
-        placeholder="password"
+        placeholder="Enter your password here"
         type="text"
         autoFocus
-        aria-labelledby="password"
+        aria-labelledby="password entry field"
         onChange={(e) => updateStrengthMeter(e.target.value)}
       />
       <div id="reasons" className="reasons">

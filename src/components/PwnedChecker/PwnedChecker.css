@@ -1,21 +1,3 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #333;
-  color: black;
-}
-
-.container {
-  text-align: center;
-  background-color: white;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* For positioning the info button */
-}
-
 .form-container {
   display: grid;
   grid-template-columns: 1fr; /* One column layout */
