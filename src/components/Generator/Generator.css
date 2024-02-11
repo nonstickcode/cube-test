@@ -22,7 +22,6 @@ body {
   box-sizing: border-box;
 }
 
-
 .form {
   display: grid;
   grid-template-columns: auto auto;
@@ -44,12 +43,10 @@ label {
 .character-amount-container {
   display: flex;
   align-items: center;
-
 }
 
 .number-input {
   width: 2rem;
-
 }
 
 .password-display {
@@ -63,7 +60,7 @@ label {
   justify-content: center;
   align-items: center;
   word-break: break-all;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .btn {
@@ -71,7 +68,7 @@ label {
   background-color: transparent;
   border: 2px solid white;
   color: white;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-weight: bold;
   cursor: pointer;
   border-radius: 1rem;
