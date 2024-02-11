@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Generator from '../Generator/Generator'
 import PwnedChecker from '../PwnedChecker/PwnedChecker'
 import Tester from '../Tester/PasswordStrengthMeter'
+import ComingSoon from '../ComingSoon/ComingSoon'
 
 const Cube: React.FC = () => {
   const [rotation, setRotation] = useState<number>(0)
@@ -25,14 +26,16 @@ const Cube: React.FC = () => {
       <div className="cube-container">
         <div className="cube" style={{ transform: `rotateY(${rotation}deg)` }}>
           <div className="cube-face front">
-            <Generator />
+            <Tester />
           </div>
           <div className="cube-face right">
             <PwnedChecker />
           </div>
-          <div className="cube-face back">Back</div>
+          <div className="cube-face back">
+            <Generator />
+          </div>
           <div className="cube-face left">
-            <Tester />
+            <ComingSoon />
           </div>
         </div>
       </div>

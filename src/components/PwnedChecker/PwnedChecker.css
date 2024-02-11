@@ -6,28 +6,6 @@
   margin: 0 auto; /* Center the grid container */
 }
 
-input,
-.check-button {
-  padding: 10px;
-  border-radius: 4px;
-}
-
-input {
-  border: 1px solid #ddd;
-}
-
-.check-button {
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  margin-top: 0.5rem;
-}
-
-.check-button:hover {
-  background-color: #0056b3;
-}
-
 .result-text {
   font-weight: bold;
   font-size: 1rem;

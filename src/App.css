@@ -1,8 +1,11 @@
 body {
-  background-color: rgba(214, 43, 226, 0.691); /* Light blue background */
+  background-color: rgba(57, 57, 57, 0.691); /* Light blue background */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Full viewport height */
   font-family: monospace, 'Courier New', Courier;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

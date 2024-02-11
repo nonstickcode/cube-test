@@ -10,15 +10,14 @@ const Generator: React.FC = () => {
 
   useEffect(() => {
     generatePassword()
-  }, [])
+  }, []) // Dependency array left empty to only run on component mount
 
   const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
   const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
   const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
   const SYMBOL_CHAR_CODES = [33, 64, 35, 36, 37, 94, 38, 42] // Symbols: !@#$%^&*
 
-  const generatePassword = (event?: React.FormEvent<HTMLFormElement>) => {
-    event?.preventDefault()
+  const generatePassword = () => {
     let charCodes = LOWERCASE_CHAR_CODES
     if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
     if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
@@ -59,11 +58,7 @@ const Generator: React.FC = () => {
       <h3 className="password-display" id="passwordDisplay">
         {password}
       </h3>
-      <form
-        id="passwordGeneratorForm"
-        className="form"
-        onSubmit={generatePassword}
-      >
+      <div id="passwordGeneratorForm" className="form">
         <label htmlFor="characterAmountSelector">Number of Characters</label>
         <select
           id="characterAmountSelector"
@@ -100,11 +95,11 @@ const Generator: React.FC = () => {
           checked={includeSymbols}
           onChange={(e) => setIncludeSymbols(e.target.checked)}
         />
-
-        <button type="submit" className="btn">
-          Generate Password
-        </button>
-      </form>
+      </div>
+      {/* Button outside the form with onClick handler */}
+      <button className="component-btn" onClick={generatePassword}>
+        Generate Password
+      </button>
     </div>
   )
 }

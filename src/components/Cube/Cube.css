@@ -30,7 +30,7 @@
   width: 100%;
   height: 100%;
   background: hsla(240, 10%, 65%, 0.2);
-  border: 4px solid hsl(289, 100%, 50%);
+  border: 4px solid hsl(120, 99%, 60%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,28 +78,41 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80%; /* Ensure it doesn't overflow the cube face */
-  height: 80%; /* Prevents overflow and maintains aspect */
+  width: 80%;
+  height: 80%;
   box-sizing: border-box;
 }
 
 .component-title {
-  margin: 0;
+  margin: 0 auto;
   text-align: center;
 }
 
 .user-text-input {
   margin-top: 1rem;
-  width: 90%;
+  width: 70%;
+  height: 2rem;
   padding: 0.25rem 0.75rem;
   background-color: whitesmoke;
-  color: white;
   border: 1px solid hsl(120, 99%, 50%);
   outline: none;
   text-align: center;
   border-radius: 0.3rem;
+  font-weight: bold;
 }
 
 .user-text-input:focus {
   border-color: hsl(120, 99%, 70%);
+}
+.component-btn {
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 0.5rem;
+  width: 50%;
+}
+
+.component-btn:hover {
+  background-color: #0056b3;
 }
