@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import SHA1 from 'crypto-js/sha1'
-import './PwnedChecker.css' // Make sure this CSS is properly linked and loaded
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Correct import for FontAwesomeIcon
-
+import './PwnedChecker.css'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const PwnedChecker: React.FC = () => {
   const [password, setPassword] = useState('')
   const [result, setResult] = useState<string | null>(null)
-  const [isModalOpen, setModalOpen] = useState(false) // State to control modal visibility
+  const [isModalOpen, setModalOpen] = useState(false) // State to control info modal visibility
   const passwordInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -75,8 +74,8 @@ const PwnedChecker: React.FC = () => {
       </div>
 
       {isModalOpen && (
-        <div className="modal" onClick={() => setModalOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal">
+          <div className="modal-content">
             <span className="close" onClick={() => setModalOpen(false)}>
               &times;
             </span>
