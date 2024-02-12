@@ -1,11 +1,7 @@
 body {
-  background-color: rgba(57, 57, 57, 0.691); /* Light blue background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Full viewport height */
+  background-color: rgba(57, 57, 57, 0.691);
+  min-height: 100vh;
   font-family: monospace, 'Courier New', Courier;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  padding: 0;
 }

@@ -7,7 +7,7 @@ interface Weakness {
 }
 
 const PasswordStrengthMeter: React.FC = () => {
-  const [strength, setStrength] = useState<number>(100)
+  const [strength, setStrength] = useState<number>(0)
   const [reasons, setReasons] = useState<Weakness[]>([])
 
   const calculatePasswordStrength = (

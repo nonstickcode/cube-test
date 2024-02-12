@@ -1,0 +1,19 @@
+.navbar {
+  padding: 1rem;
+  background-color: transparent;
+  color: hsl(120, 99%, 50%);
+  text-align: center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  top: 0px;
+  width: 100%;
+  height: 5rem;
+  font-size: larger;
+}
+
+.navbar-title {
+  margin-top: 0;
+  text-transform: uppercase;
+}
