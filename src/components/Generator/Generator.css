@@ -20,22 +20,20 @@ label {
   width: 2rem;
 }
 
-
-
 .password-display-container {
   background-color: white;
   color: black;
   padding: 0rem;
   border: 1px solid #333;
   display: flex;
-  align-items: stretch; /* Ensures children fill the container height */
+  align-items: stretch;
   justify-content: space-between;
   word-break: break-all;
+  text-align: center;
   border-radius: 0.5rem;
   position: relative;
   width: 85%;
   height: 5rem;
-  /* Removed height: auto; to allow children to define the height */
 }
 
 .password-display {
@@ -43,39 +41,5 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 15px; /* Adjust padding as needed */
-}
-
-.copy-btn {
-  background-color: #707070; /* Gray background */
-  color: white; /* Ensures FontAwesome icon is white */
-  cursor: pointer;
-  border: none;
-  font-size: 1rem; /* Adjust font size as needed */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 15px; /* Adjust padding to control width */
-  border-radius: 0 0.4rem 0.4rem 0; /* Aligns with container border-radius */
-}
-
-.tooltip {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  min-width: fit-content;
-  background-color: black;
-  border: 1px solid red;
-  color: white;
-  padding: 4px 8px;
-  margin-top: 0.75rem;
-  border-radius: 4px;
-  font-size: large;
-  display: none; /* Initially hidden */
-}
-
-.tooltip.show {
-  display: block; /* Show tooltip */
+  padding: 15px;
 }

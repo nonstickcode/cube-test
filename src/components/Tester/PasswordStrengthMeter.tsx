@@ -94,16 +94,17 @@ const PasswordStrengthMeter: React.FC = () => {
           className="strength-meter"
           style={{ '--strength': `${strength}%` } as React.CSSProperties}
         ></div>
-
-        <input
-          className="user-text-input"
-          id="password-input"
-          placeholder="Enter password here"
-          type="text"
-          autoFocus
-          aria-labelledby="password entry field"
-          onChange={(e) => updateStrengthMeter(e.target.value)}
-        />
+        <div className="input-wrapper">
+          <input
+            className="user-text-input"
+            id="password-input"
+            placeholder="Enter password here"
+            type="text"
+            autoFocus
+            aria-labelledby="password entry field"
+            onChange={(e) => updateStrengthMeter(e.target.value)}
+          />
+        </div>
         <div id="reasons" className="reasons">
           {reasons.map((reason, index) => (
             <div key={index}>{reason.message}</div>

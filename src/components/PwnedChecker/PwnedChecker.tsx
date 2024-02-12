@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import SHA1 from 'crypto-js/sha1'
 import './PwnedChecker.css'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCopy,
+  faInfoCircle,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const PwnedChecker: React.FC = () => {
@@ -9,6 +13,7 @@ const PwnedChecker: React.FC = () => {
   const [result, setResult] = useState<string | null>(null)
   const [isModalOpen, setModalOpen] = useState(false) // State to control info modal visibility
   const passwordInputRef = useRef<HTMLInputElement>(null)
+  const [showCopyTooltip, setShowCopyTooltip] = useState<boolean>(false)
 
   useEffect(() => {
     passwordInputRef.current?.focus()
@@ -43,6 +48,21 @@ const PwnedChecker: React.FC = () => {
     }
   }
 
+  const clearInput = () => {
+    setPassword('')
+    passwordInputRef.current?.focus()
+  }
+
+  const copyPasswordToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(password)
+      setShowCopyTooltip(true)
+      setTimeout(() => setShowCopyTooltip(false), 2000) // Hide tooltip after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy password: ', err)
+    }
+  }
+
   return (
     <div className="component-container">
       <button className="info-button" onClick={() => setModalOpen(true)}>
@@ -52,15 +72,36 @@ const PwnedChecker: React.FC = () => {
       <h2 className="component-sub-title">Check here</h2>
       <div className="component-body">
         <div className="form-container">
-          <input
-            className="user-text-input"
-            type="password"
-            ref={passwordInputRef}
-            placeholder="Enter password here"
-            onKeyPress={handleKeyPress}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button onClick={checkPassword} className="component-btn">
+          <div className="input-wrapper">
+            <button
+              onClick={clearInput}
+              className="input-action-btn"
+              aria-label="Clear password"
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+            <input
+              className="user-text-input"
+              type="password"
+              ref={passwordInputRef}
+              placeholder="Enter password here"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              onClick={copyPasswordToClipboard}
+              className="input-action-btn"
+              aria-label="Copy password"
+            >
+              <FontAwesomeIcon icon={faCopy} />
+            </button>
+            {showCopyTooltip && (
+              <span className="tooltip show">
+                Password copied to clipboard!
+              </span>
+            )}
+          </div>
+          <button onClick={checkPassword} className="component-submit-btn">
             Check Password
           </button>
           {result && (

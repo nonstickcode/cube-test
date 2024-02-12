@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Generator.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 const Generator: React.FC = () => {
   const [characterAmount, setCharacterAmount] = useState<number>(25)
@@ -69,59 +69,64 @@ const Generator: React.FC = () => {
     <div className="component-container">
       <h1 className="component-title">Password Generator</h1>
       <div className="password-display-container">
-  <div className="password-display" id="passwordDisplay">
-    {password}
-  </div>
-  <button onClick={copyPasswordToClipboard} className="copy-btn" aria-label="Copy password">
-    <FontAwesomeIcon icon={faCopy} />
-  </button>
-  {showCopyTooltip && <span className="tooltip show">Password copied to clipboard!</span>}
-</div>
-        
-        <div id="passwordGeneratorForm" className="form">
-          <label htmlFor="characterAmountSelector">Number of Characters</label>
-          <select
-            id="characterAmountSelector"
-            value={characterAmount}
-            onChange={syncCharacterAmount}
-          >
-            {[...Array(9)].map((_, i) => (
-              <option key={i} value={(i + 1) * 5 + 5}>
-                {(i + 1) * 5 + 5}
-              </option>
-            ))}
-          </select>
-
-          <label htmlFor="includeUppercase">Include Uppercase</label>
-          <input
-            type="checkbox"
-            id="includeUppercase"
-            checked={includeUppercase}
-            onChange={(e) => setIncludeUppercase(e.target.checked)}
-          />
-
-          <label htmlFor="includeNumbers">Include Numbers</label>
-          <input
-            type="checkbox"
-            id="includeNumbers"
-            checked={includeNumbers}
-            onChange={(e) => setIncludeNumbers(e.target.checked)}
-          />
-
-          <label htmlFor="includeSymbols">Include Symbols</label>
-          <input
-            type="checkbox"
-            id="includeSymbols"
-            checked={includeSymbols}
-            onChange={(e) => setIncludeSymbols(e.target.checked)}
-          />
+        <div className="password-display" id="passwordDisplay">
+          {password}
         </div>
-        {/* Button outside the form with onClick handler */}
-        <button className="component-btn" onClick={generatePassword}>
-          Generate Password
+        <button
+          onClick={copyPasswordToClipboard}
+          className="component-copy-btn"
+          aria-label="Copy password"
+        >
+          <FontAwesomeIcon icon={faCopy} />
         </button>
+        {showCopyTooltip && (
+          <span className="tooltip show">Password copied to clipboard!</span>
+        )}
       </div>
-    
+
+      <div id="passwordGeneratorForm" className="form">
+        <label htmlFor="characterAmountSelector">Number of Characters</label>
+        <select
+          id="characterAmountSelector"
+          value={characterAmount}
+          onChange={syncCharacterAmount}
+        >
+          {[...Array(9)].map((_, i) => (
+            <option key={i} value={(i + 1) * 5 + 5}>
+              {(i + 1) * 5 + 5}
+            </option>
+          ))}
+        </select>
+
+        <label htmlFor="includeUppercase">Include Uppercase</label>
+        <input
+          type="checkbox"
+          id="includeUppercase"
+          checked={includeUppercase}
+          onChange={(e) => setIncludeUppercase(e.target.checked)}
+        />
+
+        <label htmlFor="includeNumbers">Include Numbers</label>
+        <input
+          type="checkbox"
+          id="includeNumbers"
+          checked={includeNumbers}
+          onChange={(e) => setIncludeNumbers(e.target.checked)}
+        />
+
+        <label htmlFor="includeSymbols">Include Symbols</label>
+        <input
+          type="checkbox"
+          id="includeSymbols"
+          checked={includeSymbols}
+          onChange={(e) => setIncludeSymbols(e.target.checked)}
+        />
+      </div>
+      {/* Button outside the form with onClick handler */}
+      <button className="component-submit-btn" onClick={generatePassword}>
+        Generate Password
+      </button>
+    </div>
   )
 }
 
