@@ -26,6 +26,7 @@ const Generator: React.FC = () => {
     if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
     if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
 
+    // eslint-disable-next-line prefer-const
     let passwordLength = Math.max(10, Math.min(characterAmount, 50)) // Ensure password length is between 10 and 50 characters
 
     const passwordCharacters = []
