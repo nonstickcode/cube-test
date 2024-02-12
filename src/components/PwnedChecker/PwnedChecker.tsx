@@ -41,13 +41,6 @@ const PwnedChecker: React.FC = () => {
       })
   }
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      event.preventDefault()
-      checkPassword()
-    }
-  }
-
   const clearInput = () => {
     setPassword('')
     passwordInputRef.current?.focus()

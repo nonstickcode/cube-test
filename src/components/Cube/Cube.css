@@ -151,10 +151,10 @@
   outline: none;
 }
 .input-action-btn:active {
-  transform: scale(0.9); /* Shrink button to 90% when active/clicked */
+  transform: scale(0.8); /* Shrink button to 90% when active/clicked */
 }
 .input-action-btn:hover {
-color: rgb(159, 158, 158);
+  color: rgb(159, 158, 158);
 }
 
 .component-copy-btn {
