@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './Generator.css'
 
 const Generator: React.FC = () => {
-  const [characterAmount, setCharacterAmount] = useState<number>(10)
-  const [includeUppercase, setIncludeUppercase] = useState<boolean>(false)
-  const [includeNumbers, setIncludeNumbers] = useState<boolean>(false)
-  const [includeSymbols, setIncludeSymbols] = useState<boolean>(false)
+  const [characterAmount, setCharacterAmount] = useState<number>(25)
+  const [includeUppercase, setIncludeUppercase] = useState<boolean>(true)
+  const [includeNumbers, setIncludeNumbers] = useState<boolean>(true)
+  const [includeSymbols, setIncludeSymbols] = useState<boolean>(true)
   const [password, setPassword] = useState<string>('password')
 
   useEffect(() => {
@@ -55,51 +55,54 @@ const Generator: React.FC = () => {
   return (
     <div className="component-container">
       <h1 className="component-title">Password Generator</h1>
-      <h3 className="password-display" id="passwordDisplay">
-        {password}
-      </h3>
-      <div id="passwordGeneratorForm" className="form">
-        <label htmlFor="characterAmountSelector">Number of Characters</label>
-        <select
-          id="characterAmountSelector"
-          value={characterAmount}
-          onChange={syncCharacterAmount}
-        >
-          {[...Array(9)].map((_, i) => (
-            <option key={i} value={(i + 1) * 5 + 5}>
-              {(i + 1) * 5 + 5}
-            </option>
-          ))}
-        </select>
+      <div className="component-body">
+        <h3 className="password-display" id="passwordDisplay">
+          {password}
+        </h3>
 
-        <label htmlFor="includeUppercase">Include Uppercase</label>
-        <input
-          type="checkbox"
-          id="includeUppercase"
-          checked={includeUppercase}
-          onChange={(e) => setIncludeUppercase(e.target.checked)}
-        />
+        <div id="passwordGeneratorForm" className="form">
+          <label htmlFor="characterAmountSelector">Number of Characters</label>
+          <select
+            id="characterAmountSelector"
+            value={characterAmount}
+            onChange={syncCharacterAmount}
+          >
+            {[...Array(9)].map((_, i) => (
+              <option key={i} value={(i + 1) * 5 + 5}>
+                {(i + 1) * 5 + 5}
+              </option>
+            ))}
+          </select>
 
-        <label htmlFor="includeNumbers">Include Numbers</label>
-        <input
-          type="checkbox"
-          id="includeNumbers"
-          checked={includeNumbers}
-          onChange={(e) => setIncludeNumbers(e.target.checked)}
-        />
+          <label htmlFor="includeUppercase">Include Uppercase</label>
+          <input
+            type="checkbox"
+            id="includeUppercase"
+            checked={includeUppercase}
+            onChange={(e) => setIncludeUppercase(e.target.checked)}
+          />
 
-        <label htmlFor="includeSymbols">Include Symbols</label>
-        <input
-          type="checkbox"
-          id="includeSymbols"
-          checked={includeSymbols}
-          onChange={(e) => setIncludeSymbols(e.target.checked)}
-        />
+          <label htmlFor="includeNumbers">Include Numbers</label>
+          <input
+            type="checkbox"
+            id="includeNumbers"
+            checked={includeNumbers}
+            onChange={(e) => setIncludeNumbers(e.target.checked)}
+          />
+
+          <label htmlFor="includeSymbols">Include Symbols</label>
+          <input
+            type="checkbox"
+            id="includeSymbols"
+            checked={includeSymbols}
+            onChange={(e) => setIncludeSymbols(e.target.checked)}
+          />
+        </div>
+        {/* Button outside the form with onClick handler */}
+        <button className="component-btn" onClick={generatePassword}>
+          Generate Password
+        </button>
       </div>
-      {/* Button outside the form with onClick handler */}
-      <button className="component-btn" onClick={generatePassword}>
-        Generate Password
-      </button>
     </div>
   )
 }

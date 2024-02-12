@@ -38,11 +38,11 @@
 
 /* Modal styles */
 .modal {
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
   left: 0;
   top: 0;
+  display: flex;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -51,10 +51,13 @@
 }
 
 .modal-content {
+  color: black;
+  border: 1px solid red;
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: auto auto;
   padding: 20px;
   border: 1px solid #888;
+  font-size: small;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 

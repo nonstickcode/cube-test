@@ -80,23 +80,27 @@ const PasswordStrengthMeter: React.FC = () => {
   return (
     <div className="component-container">
       <h1 className="component-title">Test your strength</h1>
-      <div
-        className="strength-meter"
-        style={{ '--strength': `${strength}%` } as React.CSSProperties}
-      ></div>
-      <input
-        className="user-text-input"
-        id="password-input"
-        placeholder="Enter password here"
-        type="text"
-        autoFocus
-        aria-labelledby="password entry field"
-        onChange={(e) => updateStrengthMeter(e.target.value)}
-      />
-      <div id="reasons" className="reasons">
-        {reasons.map((reason, index) => (
-          <div key={index}>{reason.message}</div>
-        ))}
+      <div className="component-body">
+        <div
+          className="strength-meter"
+          style={{ '--strength': `${strength}%` } as React.CSSProperties}
+        ></div>
+
+        <input
+          className="user-text-input"
+          id="password-input"
+          placeholder="Enter password here"
+          type="text"
+          autoFocus
+          aria-labelledby="password entry field"
+          onChange={(e) => updateStrengthMeter(e.target.value)}
+        />
+        <div id="reasons" className="reasons">
+          {reasons.map((reason, index) => (
+            <div key={index}>{reason.message}</div>
+          ))}
+        </div>
+        <div className="spacer"></div>
       </div>
     </div>
   )
