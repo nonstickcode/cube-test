@@ -29,7 +29,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("/public/matrix-bg.svg");
+  background-image: url('/public/matrix-bg.svg');
   background-size: full;
   border: 1px solid hsl(120, 99%, 60%);
   display: flex;
@@ -123,8 +123,20 @@
   margin: 1rem auto;
 }
 
+.component-copy-btn {
+  background-color: transparent;
+  border: 1px solid red;
+  padding: .5rem;
+  margin: .5rem;
+}
+
 .user-text-input:focus {
   border-color: hsl(120, 99%, 50%);
+}
+.password-copy-div {
+  display: flex;
+  flex-direction: row;
+
 }
 .component-btn {
   cursor: pointer;

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Generator.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 const Generator: React.FC = () => {
   const [characterAmount, setCharacterAmount] = useState<number>(25)
@@ -7,6 +9,7 @@ const Generator: React.FC = () => {
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(true)
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(true)
   const [password, setPassword] = useState<string>('password')
+  const [showCopyTooltip, setShowCopyTooltip] = useState<boolean>(false)
 
   useEffect(() => {
     generatePassword()
@@ -52,14 +55,29 @@ const Generator: React.FC = () => {
     setCharacterAmount(value)
   }
 
+  const copyPasswordToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(password)
+      setShowCopyTooltip(true)
+      setTimeout(() => setShowCopyTooltip(false), 2000) // Hide tooltip after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy password: ', err)
+    }
+  }
+
   return (
     <div className="component-container">
       <h1 className="component-title">Password Generator</h1>
-      <div className="component-body">
-        <h3 className="password-display" id="passwordDisplay">
-          {password}
-        </h3>
-
+      <div className="password-display-container">
+  <div className="password-display" id="passwordDisplay">
+    {password}
+  </div>
+  <button onClick={copyPasswordToClipboard} className="copy-btn" aria-label="Copy password">
+    <FontAwesomeIcon icon={faCopy} />
+  </button>
+  {showCopyTooltip && <span className="tooltip show">Password copied to clipboard!</span>}
+</div>
+        
         <div id="passwordGeneratorForm" className="form">
           <label htmlFor="characterAmountSelector">Number of Characters</label>
           <select
@@ -103,7 +121,7 @@ const Generator: React.FC = () => {
           Generate Password
         </button>
       </div>
-    </div>
+    
   )
 }
 
