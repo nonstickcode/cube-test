@@ -1,9 +1,9 @@
 .form-container {
-  display: grid;
-  grid-template-columns: 1fr; /* One column layout */
-  gap: 10px; /* Space between grid items */
-  width: 80%; /* Control width here for both input and button */
-  margin: 0 auto; /* Center the grid container */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .result-text {
@@ -62,7 +62,7 @@
 }
 
 .close {
-  color: #aaa;
+  color: hsl(0, 100%, 50%);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -70,7 +70,7 @@
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: hsl(0, 100%, 35%);
   text-decoration: none;
   cursor: pointer;
 }
