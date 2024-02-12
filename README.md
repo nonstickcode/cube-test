@@ -30,4 +30,4 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 
-#<a href="https://www.freepik.com/free-vector/stream-binary-code-design-vector_25519704.htm#query=matrix%20background&position=3&from_view=keyword&track=ais&uuid=85f078f4-2683-4cb2-9d32-ab1d5fe0a920">Image by rawpixel.com</a> on Freepik
+#Background image by: <a href="https://www.freepik.com/free-vector/stream-binary-code-design-vector_25519704.htm#query=matrix%20background&position=3&from_view=keyword&track=ais&uuid=85f078f4-2683-4cb2-9d32-ab1d5fe0a920">Image by rawpixel.com</a> on Freepik
