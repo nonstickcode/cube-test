@@ -6,9 +6,19 @@ interface Weakness {
   deduction: number
 }
 
+const allPossibleWeaknesses: Weakness[] = [
+  { message: 'Your password is too short', deduction: 40 },
+  { message: 'Your password has no lowercase characters', deduction: 20 },
+  { message: 'Your password has no uppercase characters', deduction: 20 },
+  { message: 'Your password has no numbers', deduction: 20 },
+  { message: 'Your password has no special characters', deduction: 20 },
+  { message: 'Your password has repeat characters', deduction: 10 },
+];
+
 const PasswordStrengthMeter: React.FC = () => {
-  const [strength, setStrength] = useState<number>(0)
-  const [reasons, setReasons] = useState<Weakness[]>([])
+  const [strength, setStrength] = useState<number>(0);
+  const [reasons, setReasons] = useState<Weakness[]>(allPossibleWeaknesses);
+
 
   const calculatePasswordStrength = (
     password: string

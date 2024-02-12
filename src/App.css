@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(57, 57, 57, 0.691);
+  background: url('/public/black_purple_background.svg');
   min-height: 100vh;
   font-family: monospace, 'Courier New', Courier;
   margin: 0;
