@@ -1,4 +1,5 @@
 .cube-wrapper {
+  margin-top: 3rem;
   position: relative; /* Ensure this is relative to position buttons correctly if needed */
   display: flex;
   flex-direction: row; /* Adjust if your layout requires a different orientation */
@@ -9,12 +10,11 @@
 }
 .cube-container {
   perspective: 2000px;
-  width: 40vw;
-  height: 40vw;
+  width: 40rem;
+  height: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px;
 }
 
 .cube {
@@ -38,16 +38,16 @@
 }
 
 .front {
-  transform: rotateY(0deg) translateZ(20vw);
+  transform: rotateY(0deg) translateZ(20rem);
 }
 .right {
-  transform: rotateY(90deg) translateZ(20vw);
+  transform: rotateY(90deg) translateZ(20rem);
 }
 .back {
-  transform: rotateY(180deg) translateZ(20vw);
+  transform: rotateY(180deg) translateZ(20rem);
 }
 .left {
-  transform: rotateY(-90deg) translateZ(20vw);
+  transform: rotateY(-90deg) translateZ(20rem);
 }
 
 .rotate-btn {
@@ -92,19 +92,16 @@
 }
 
 .component-title {
-  /* border: 1px solid red; */
   margin: 1rem auto 0.5rem;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: xx-large;
   text-transform: uppercase;
 }
 .component-sub-title {
-  /* border: 1px solid red; */
   font-size: 1.5rem;
   text-transform: lowercase;
 }
 .component-body {
-  /* border: 1px solid red; */
   width: 100%;
   flex-grow: 1;
   display: flex;
